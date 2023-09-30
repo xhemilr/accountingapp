@@ -24,4 +24,4 @@ pipelines:
           - dotnet restore /src/Server/Server.csproj
 
           - echo "Building the project..."
-          - dotnet build /src/Server/Server.csproj --configuration Release
+          - dotnet build --configuration Release /src/Server/Server.csproj

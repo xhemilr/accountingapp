@@ -22,7 +22,6 @@ pipelines:
 
           - echo "Restoring NuGet packages..."
           - cd src/Server  # Change to the directory containing your project file
-          - echo *
           - dotnet restore  # Let dotnet restore use the default project file (typically *.csproj)
 
           - echo "Building the project..."

@@ -21,7 +21,7 @@ pipelines:
           # - apt-get update && apt-get install -y some-package
 
           - echo "Restoring NuGet packages..."
-          - dotnet restore .\src\Server\Server.csproj
+          - dotnet restore /src/Server/Server.csproj
 
           - echo "Building the project..."
-          - dotnet build .\src\Server\Server.csproj --configuration Release
+          - dotnet build /src/Server/Server.csproj --configuration Release

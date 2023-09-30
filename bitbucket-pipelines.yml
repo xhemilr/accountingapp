@@ -21,7 +21,11 @@ pipelines:
           # - apt-get update && apt-get install -y some-package
 
           - echo "Restoring NuGet packages..."
-          - dotnet restore /src/Server/Server.csproj
+          - cd /src/Server  # Change to the directory containing your project file
+          - dotnet restore  # Let dotnet restore use the default project file (typically *.csproj)
 
           - echo "Building the project..."
-          - dotnet build --configuration Release /src/Server/Server.csproj
+          - dotnet build --configuration Release
+
+          - echo "Running tests..."
+          - dotnet test --configuration Release --no-build

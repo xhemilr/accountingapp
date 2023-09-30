@@ -16,6 +16,6 @@ pipelines:
             caches:
               - dotnetcore
             script:
-              - dotnet restore
-              - dotnet build 
-              - dotnet test
+              - dotnet restore .\AccountingApp.sln
+              - dotnet build .\AccountingApp.sln
+              - dotnet test .\AccountingApp.sln

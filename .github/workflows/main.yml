@@ -19,8 +19,7 @@ jobs:
           dotnet-version: 3.1
         # publishes Blazor project to the release-folder
       - name: Publish .NET Core Project
-        cd src/Server  # Change to the directory containing your project file
-        run: dotnet publish AccountingApp.csproj -c Release -o release --nologo
+        run: dotnet publish src/Server/Server.csproj -c Release -o release --nologo
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:

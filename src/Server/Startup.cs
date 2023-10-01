@@ -14,6 +14,9 @@ using AccountingApp.Infrastructure.Extensions;
 using AccountingApp.Server.Extensions;
 using AccountingApp.Server.Managers.Preferences;
 using AccountingApp.Server.Middlewares;
+using System.Security.Cryptography;
+using System.Text;
+using System;
 
 namespace AccountingApp.Server
 {
@@ -38,7 +41,7 @@ namespace AccountingApp.Server
             });
             services.AddCurrentUserService();
             services.AddSerialization();
-            services.AddDatabase(_configuration);
+            services.AddDatabase(Decrypt(_configuration.GetConnectionString("DefaultConnection"), _configuration["EncryptionKey"]).Replace("\\\\", "\\"));
             services.AddServerStorage(); //TODO - should implement ServerStorageProvider to work correctly!
             services.AddScoped<ServerPreferenceManager>();
             services.AddServerLocalization();
@@ -51,7 +54,7 @@ namespace AccountingApp.Server
             services.AddSharedInfrastructure(_configuration);
             services.RegisterSwagger();
             services.AddInfrastructureMappings();
-            services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddHangfire(x => x.UseSqlServerStorage(Decrypt(_configuration.GetConnectionString("DefaultConnection"), _configuration["EncryptionKey"]).Replace("\\\\", "\\")));
             services.AddHangfireServer();
             services.AddControllers().AddValidators();
             services.AddRazorPages();
@@ -89,6 +92,21 @@ namespace AccountingApp.Server
             app.UseEndpoints();
             app.ConfigureSwagger();
             app.Initialize(_configuration);
+        }
+
+        private static string Decrypt(string value, string key)
+        {
+            using (var tripleDESCryptoService = TripleDES.Create())
+            {
+                using (var hashMD5Provider = MD5.Create())
+                {
+                    byte[] byteHash = hashMD5Provider.ComputeHash(Encoding.UTF8.GetBytes(key));
+                    tripleDESCryptoService.Key = byteHash;
+                    tripleDESCryptoService.Mode = CipherMode.ECB;
+                    byte[] data = Convert.FromBase64String(value);
+                    return Encoding.UTF8.GetString(tripleDESCryptoService.CreateDecryptor().TransformFinalBlock(data, 0, data.Length));
+                }
+            }
         }
     }
 }

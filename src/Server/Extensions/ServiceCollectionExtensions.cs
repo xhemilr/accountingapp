@@ -211,10 +211,10 @@ namespace AccountingApp.Server.Extensions
 
         internal static IServiceCollection AddDatabase(
             this IServiceCollection services,
-            IConfiguration configuration)
+            string connString)
             => services
                 .AddDbContext<AccountingAppContext>(options => options
-                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection")))
+                    .UseSqlServer(connString))
             .AddTransient<IDatabaseSeeder, DatabaseSeeder>();
 
         internal static IServiceCollection AddCurrentUserService(this IServiceCollection services)

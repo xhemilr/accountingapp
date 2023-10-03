@@ -89,7 +89,7 @@ namespace AccountingApp.Client.Shared
                     Console.WriteLine(ex.Message);
                     _snackBar.Add(_localizer["You are Logged Out."], Severity.Error);
                     await _authenticationManager.Logout();
-                    _navigationManager.NavigateTo("/");
+                    _navigationManager.NavigateTo("/accoutingapp/");
                 }
             });
             hubConnection.On<string, string>(ApplicationConstants.SignalR.LogoutUsersByRole, async (userId, roleId) =>
@@ -108,7 +108,7 @@ namespace AccountingApp.Client.Shared
                                 _snackBar.Add(_localizer["You are logged out because the Permissions of one of your Roles have been updated."], Severity.Error);
                                 await hubConnection.SendAsync(ApplicationConstants.SignalR.OnDisconnect, CurrentUserId);
                                 await _authenticationManager.Logout();
-                                _navigationManager.NavigateTo("/login");
+                                _navigationManager.NavigateTo("/accountingapp/login");
                             }
                         }
                     }

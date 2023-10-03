@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Accounting App</title>
-    <base href="/" />
+    <base href="/accountingapp/" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="_content/MudBlazor/MudBlazor.min.css?v=5.1.0" rel="stylesheet" />
@@ -67,6 +67,13 @@
     <script src="js/scroll.js"></script>
     <script src="js/sounds.js"></script>
     <script src="js/file.js"></script>
+    <script>
+        let baseTag = document.getElementsByTagName('base')[0];
+        let baseHref = baseTag.getAttribute('href');
+        let href = window.location.pathname.substr(0, baseHref.length)
+        if (!href.endsWith('/')) href += '/';
+        baseTag.setAttribute('href', href);
+    </script>
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="_content/MudBlazor/MudBlazor.min.js?v=5.1.0"></script>
 </body>

@@ -18,7 +18,7 @@ namespace AccountingApp.Client.Pages.Authentication
             var state = await _stateProvider.GetAuthenticationStateAsync();
             if (state != new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())))
             {
-                _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo("/accountingapp/");
             }
         }
 

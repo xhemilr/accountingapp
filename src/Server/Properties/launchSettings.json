@@ -19,6 +19,7 @@
     "AccountingApp.Server": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "https://localhost:5001/accountingapp/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

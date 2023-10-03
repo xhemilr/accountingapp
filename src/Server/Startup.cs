@@ -73,6 +73,7 @@ namespace AccountingApp.Server
             app.UseExceptionHandling(env);
             app.UseHttpsRedirection();
             app.UseMiddleware<ErrorHandlerMiddleware>();
+            app.UsePathBase("/accountingapp/");
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions

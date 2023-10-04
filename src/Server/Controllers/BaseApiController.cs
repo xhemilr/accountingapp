@@ -9,7 +9,7 @@ namespace AccountingApp.Server.Controllers
     /// Abstract BaseApi Controller Class
     /// </summary>
     [ApiController]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("accountingapp/api/v{version:apiVersion}/[controller]")]
     public abstract class BaseApiController<T> : ControllerBase
     {
         private IMediator _mediatorInstance;

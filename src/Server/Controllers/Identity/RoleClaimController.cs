@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AccountingApp.Server.Controllers.Identity
 {
-    [Route("api/identity/roleClaim")]
+    [Route("accountingapp/api/identity/roleClaim")]
     [ApiController]
     public class RoleClaimController : ControllerBase
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccountingApp.Server.Controllers.Identity
 {
-    [Route("api/identity/token")]
+    [Route("accountingapp/api/identity/token")]
     [ApiController]
     public class TokenController : ControllerBase
     {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AccountingApp.Server.Controllers.Identity
 {
     [Authorize]
-    [Route("api/identity/user")]
+    [Route("accountingapp/api/identity/user")]
     [ApiController]
     public class UserController : ControllerBase
     {

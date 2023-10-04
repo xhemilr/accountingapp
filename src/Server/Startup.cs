@@ -57,7 +57,16 @@ namespace AccountingApp.Server
             services.AddHangfire(x => x.UseSqlServerStorage(Decrypt(_configuration.GetConnectionString("DefaultConnection"), _configuration["EncryptionKey"]).Replace("\\\\", "\\")));
             services.AddHangfireServer();
             services.AddControllers().AddValidators();
-            //services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("https://xhemilr.github.io")
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
             services.AddRazorPages();
             services.AddApiVersioning(config =>
             {

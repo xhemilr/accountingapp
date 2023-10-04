@@ -1,6 +1,8 @@
 ﻿@page "/dashboard"
 @attribute [Authorize(Policy = Permissions.Dashboards.View)]
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Dashboard> _localizer
+@using Microsoft.AspNetCore.SignalR.Client
+@using AccountingApp.Shared.Constants.Application;
 
 <AppTitle Title="@_localizer["Dashboard"]" Description="@_localizer["Realtime Updates & Insights with SignalR."]" />
 @if (!_loaded)

@@ -2,6 +2,7 @@
 @layout MainLayout
 @attribute [AllowAnonymous]
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Login> _localizer
+@using System.Security.Claims;
 
 <EditForm Model="@_tokenModel" OnValidSubmit="SubmitAsync">
     <FluentValidationValidator @ref="_fluentValidationValidator" />
@@ -62,7 +63,7 @@
         var state = await _stateProvider.GetAuthenticationStateAsync();
         if (state != new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())))
         {
-            _navigationManager.NavigateTo("/accountingapp/");
+            _navigationManager.NavigateTo("/accountingapp");
         }
     }
 

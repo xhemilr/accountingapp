@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "AccountingApp.Application.dll": "sha256-Gzv0dVOnGwIlnDudrzCWFKiaEg3YAeg\/oQj8hvzgC08=",
-      "AccountingApp.Client.dll": "sha256-wBl\/fZoLdr5GDUpYQM3IjTqgMsrxF05Ud00vtXZMdoI=",
+      "AccountingApp.Client.dll": "sha256-BJAEacUlqO6ZxvUcgKw1JSxN5UY\/9LQ3tWMyjB6FnhE=",
       "AccountingApp.Client.Infrastructure.dll": "sha256-QDtvAO0+vilu74Zpjsmgabv9JzcMv5HCqlydq4tFkEI=",
       "AccountingApp.Domain.dll": "sha256-eQSKf5NOUjwuq6ZEM5GQvdPIBZA6djyTuIam+Yenhx8=",
       "AccountingApp.Shared.dll": "sha256-ToNfIPfBgu9t3onPDMxd8JC763HPgchETSwvQWo9bCE=",

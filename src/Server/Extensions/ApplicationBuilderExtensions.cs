@@ -34,18 +34,26 @@ namespace AccountingApp.Server.Extensions
         internal static IApplicationBuilder UseForwarding(this IApplicationBuilder app, IConfiguration configuration)
         {
             AppConfiguration config = GetApplicationSettings(configuration);
-            if (config.BehindSSLProxy)
+            //if (config.BehindSSLProxy)
+            //{
+            //    app.UseCors();
+            //    app.UseForwardedHeaders();
+            //}
+            //else
+            //{
+            //    app.UseCors(builder =>
+            //    {
+            //        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            //    });
+            //}
+
+            app.UseCors(builder =>
             {
-                app.UseCors();
-                app.UseForwardedHeaders();
-            }
-            else
-            {
-                app.UseCors(builder =>
-                {
-                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-                });
-            }
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             return app;
         }

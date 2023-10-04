@@ -57,6 +57,7 @@ namespace AccountingApp.Server
             services.AddHangfire(x => x.UseSqlServerStorage(Decrypt(_configuration.GetConnectionString("DefaultConnection"), _configuration["EncryptionKey"]).Replace("\\\\", "\\")));
             services.AddHangfireServer();
             services.AddControllers().AddValidators();
+            services.AddCors();
             services.AddRazorPages();
             services.AddApiVersioning(config =>
             {

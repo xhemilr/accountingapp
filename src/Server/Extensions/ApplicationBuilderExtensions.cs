@@ -39,6 +39,13 @@ namespace AccountingApp.Server.Extensions
                 app.UseCors();
                 app.UseForwardedHeaders();
             }
+            else
+            {
+                app.UseCors(builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            }
 
             return app;
         }

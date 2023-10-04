@@ -64,7 +64,7 @@ namespace AccountingApp.Server.Extensions
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", typeof(Program).Assembly.GetName().Name);
-                options.RoutePrefix = "accountingapp/swagger";
+                options.RoutePrefix = "swagger";
                 options.DisplayRequestDuration();
             });
         }

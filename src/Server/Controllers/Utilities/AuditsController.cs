@@ -6,7 +6,7 @@ using AccountingApp.Shared.Constants.Permission;
 
 namespace AccountingApp.Server.Controllers.Utilities
 {
-    [Route("accountingapp/api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class AuditsController : ControllerBase

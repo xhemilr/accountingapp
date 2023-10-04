@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AccountingApp.Server.Controllers.Utilities
 {
-    [Route("accountingapp/api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PreferencesController : ControllerBase
     {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AccountingApp.Server.Controllers.Identity
 {
-    [Route("accountingapp/api/identity/role")]
+    [Route("api/identity/role")]
     [ApiController]
     public class RoleController : ControllerBase
     {

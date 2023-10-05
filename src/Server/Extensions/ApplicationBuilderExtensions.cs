@@ -50,6 +50,7 @@ namespace AccountingApp.Server.Extensions
             app.UseCors(builder =>
             {
                 builder
+                .AllowCredentials()
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader();
@@ -63,7 +64,7 @@ namespace AccountingApp.Server.Extensions
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", typeof(Program).Assembly.GetName().Name);
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 options.RoutePrefix = "swagger";
                 options.DisplayRequestDuration();
             });

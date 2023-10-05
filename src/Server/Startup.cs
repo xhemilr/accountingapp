@@ -63,7 +63,7 @@ namespace AccountingApp.Server
                 {
                     builder.WithOrigins("https://xhemilr.github.io", "185.199.108.153:443", "0.0.0.0:443")
                     .AllowCredentials()
-                        .AllowAnyOrigin()
+                        //.AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
@@ -86,7 +86,7 @@ namespace AccountingApp.Server
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UsePathBase("/accountingapp/");
             app.UseBlazorFrameworkFiles();
-            app.UseStaticFiles("accountingapp/");
+            app.UseStaticFiles("/accountingapp");
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Files")),

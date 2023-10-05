@@ -62,6 +62,7 @@ namespace AccountingApp.Server
                 options.AddDefaultPolicy(builder =>
                 {
                     builder.WithOrigins("https://xhemilr.github.io", "185.199.108.153:443", "0.0.0.0:443")
+                    .AllowCredentials()
                         .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod();

@@ -89,7 +89,8 @@ namespace AccountingApp.Server.Extensions
                                 .AllowCredentials()
                                 .AllowAnyHeader()
                                 .AllowAnyMethod()
-                                .WithOrigins(config.ApplicationUrl.TrimEnd('/'));
+                                .AllowAnyHeader();
+                                //.WithOrigins(config.ApplicationUrl.TrimEnd('/'));
                         });
                 });
             }
@@ -140,18 +141,18 @@ namespace AccountingApp.Server.Extensions
 
                 // include all project's xml comments
                 var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-                {
-                    if (!assembly.IsDynamic)
-                    {
-                        var xmlFile = $"{assembly.GetName().Name}.xml";
-                        var xmlPath = Path.Combine(baseDirectory, xmlFile);
-                        if (File.Exists(xmlPath))
-                        {
-                            c.IncludeXmlComments(xmlPath);
-                        }
-                    }
-                }
+                //foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+                //{
+                //    if (!assembly.IsDynamic)
+                //    {
+                //        var xmlFile = $"{assembly.GetName().Name}.xml";
+                //        var xmlPath = Path.Combine(baseDirectory, xmlFile);
+                //        if (File.Exists(xmlPath))
+                //        {
+                //            c.IncludeXmlComments(xmlPath);
+                //        }
+                //    }
+                //}
 
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
